@@ -1,5 +1,11 @@
+import DashboardLayout from "../../layout/DashboardLayout";
+
 const Users = () => {
-  return <div>Users</div>;
+  return (
+    <DashboardLayout>
+      <div>users</div>
+    </DashboardLayout>
+  );
 };
 
 export default Users;
