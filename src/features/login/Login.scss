@@ -1,0 +1,223 @@
+@use "sass:color";
+
+$primaryColor: #545f7d;
+$secondaryColor: #213f7d;
+$tealColor: #39cdcc;
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+
+  .image-container-wrapper {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+
+      .logo {
+        width: 173.76px;
+        height: 36px;
+        margin-top: 106px;
+      }
+
+      .login-hero-img {
+        width: 600px;
+        height: 337.57px;
+        margin-top: 139px;
+      }
+    }
+  }
+
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 100%;
+        letter-spacing: -4%;
+        color: $secondaryColor;
+        margin-top: 215px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 100%;
+        color: $primaryColor;
+        margin-top: 18px;
+        margin-bottom: 52px;
+      }
+
+      input {
+        width: 447px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #dfe3eb;
+        margin-bottom: 24px;
+        padding: 0 10px;
+        outline: none;
+        color: $primaryColor;
+      }
+
+      span {
+        color: $tealColor;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      button {
+        width: 447px;
+        height: 48px;
+        background-color: $tealColor;
+        border-radius: 8px;
+        border: 1px solid $tealColor;
+        color: white;
+        font-size: 14px;
+        line-height: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-top: 27px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: color.adjust($tealColor, $lightness: -5%);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .login-container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+
+    .image-container-wrapper,
+    .form-wrapper {
+      flex: unset;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container-wrapper {
+      margin-bottom: 2rem;
+
+      .image-container {
+        align-items: center;
+
+        .logo {
+          margin: 2rem auto 1rem;
+          margin-left: 0;
+        }
+
+        .login-hero-img {
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .form-wrapper {
+      form {
+        width: 100%;
+        align-items: center;
+
+        h2 {
+          font-size: 28px;
+          margin-top: 2rem;
+        }
+
+        p {
+          font-size: 16px;
+          margin: 0.5rem 0 2rem;
+        }
+
+        input,
+        button {
+          width: 65%;
+          max-width: 100%;
+        }
+
+        span {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .login-container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+
+    .image-container-wrapper,
+    .form-wrapper {
+      flex: unset;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container-wrapper {
+      margin-bottom: 0.5rem;
+
+      .image-container {
+        .logo {
+          width: 123.76px;
+          height: 26px;
+        }
+
+        .login-hero-img {
+          width: 90%;
+        }
+      }
+    }
+
+    .form-wrapper {
+      form {
+        width: 100%;
+
+        h2 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 14px;
+          margin: 0.3rem 0 1.4rem;
+        }
+
+        input,
+        button {
+          width: 90%;
+        }
+
+        button {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

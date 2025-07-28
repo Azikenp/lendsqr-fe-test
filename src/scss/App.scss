@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.custom-toaster {
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-top: 1rem;
+}
