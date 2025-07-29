@@ -18,12 +18,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <p className="navbar-text">Docs</p>
-          <img className="icon" src={bellIcon} alt="avatar" />
+          <img className="icon" src={bellIcon} alt="bell-icon" />
           <div>
             <img className="avatar" src={avatar} alt="avatar" />
             <p>
               Adedeji
-              <img className="dropdown" src={dropdown} alt="avatar" />
+              <img className="dropdown" src={dropdown} alt="dropdown" />
             </p>
           </div>
         </div>

@@ -1,0 +1,113 @@
+$darkBlue: #213f7d;
+$headerColor: #545f7d;
+$linkColor: #213f7d99;
+$bgActive: #39cdcc0f;
+$linkColorActive: #213f7d;
+
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-width: 283px;
+  height: 100vh;
+  overflow: hidden;
+
+  .sidebar-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 52%;
+    left: 270px;
+    rotate: 270deg;
+    cursor: pointer;
+    background: #00000017;
+    width: 30px;
+    height: 30px;
+    border-radius: 60%;
+    
+    img{
+      width: 12px;
+    }
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // Hide scrollbar for Webkit browsers (Chrome, Safari)
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    // Hide scrollbar for Firefox
+    scrollbar-width: none;
+
+    // Hide scrollbar for IE and Edge
+    -ms-overflow-style: none;
+  }
+
+  .organization {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 0px 30px 0px 30px;
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      color: $darkBlue;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .sidebar-group {
+    display: flex;
+    flex-direction: column;
+
+    .sidebar-header {
+      color: $headerColor;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-top: 30px;
+      margin-bottom: 16px;
+      padding: 0px 30px 0px 30px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      text-transform: capitalize;
+      color: $linkColor;
+      padding: 15px 30px 15px 30px;
+
+      img {
+        width: 16px;
+        height: 12.8px;
+      }
+
+      &:hover {
+        background-color: $bgActive;
+        color: $linkColorActive;
+      }
+
+      &.active {
+        background-color: $bgActive;
+        color: $linkColorActive;
+      }
+    }
+  }
+}

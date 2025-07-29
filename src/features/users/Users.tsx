@@ -1,9 +1,10 @@
 import DashboardLayout from "../../layout/DashboardLayout";
+import './Users.scss'
 
 const Users = () => {
   return (
     <DashboardLayout>
-      <div>users</div>
+      <div className="users-wrapper">users</div>
     </DashboardLayout>
   );
 };
