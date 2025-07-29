@@ -1,0 +1,110 @@
+$shadow-sm: 0px 4px 20px #213f7d0f;
+$textColorPrimary: #545f7d;
+
+.table-wrapper {
+  margin-top: 52px;
+
+  .table {
+    background-color: white;
+    box-shadow: $shadow-sm;
+    border-radius: 4px;
+    padding: 26px;
+    min-width: 100%;
+
+    .thead {
+      tr {
+        height: 50px;
+
+        th {
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: $textColorPrimary;
+
+          .header-content {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            img {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+        height: 60px;
+        position: relative;
+
+        td {
+          color: $textColorPrimary;
+          font-size: 14px;
+          border-bottom: 1px solid #213f7d1d;
+        }
+
+        .status {
+          background-color: red;
+          padding: 8px 20px 8px 20px;
+          width: fit-content;
+          border-radius: 14px;
+          font-weight: 400;
+          font-size: 12px;
+          text-transform: capitalize;
+
+          &.inactive {
+            background-color: #545f7d0f;
+            color: #545f7d;
+          }
+          &.active {
+            background-color: #39cd620f;
+            color: #39cd62;
+          }
+          &.blacklisted {
+            background-color: #e4033b0f;
+            color: #e4033b;
+          }
+          &.pending {
+            background-color: #e9b2000f;
+            color: #e9b200;
+          }
+        }
+
+        .options {
+          position: absolute;
+          background-color: white;
+          right: -40px;
+          top: 50px;
+          z-index: 30;
+          padding: 10px 20px;
+          box-shadow: $shadow-sm;
+          cursor: default;
+
+          .options-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 9px 0 9px 0;
+            color: $textColorPrimary;
+            font-size: 14px;
+            cursor: pointer;
+
+            img {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

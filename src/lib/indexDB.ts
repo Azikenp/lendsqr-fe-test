@@ -1,4 +1,4 @@
-import { UserType } from "../types/UserType";
+import { UserType } from "../types/allTypes";
 
 // Create IndexedDB
 export function openUserDB(): Promise<IDBDatabase> {
@@ -22,8 +22,6 @@ export async function saveUsersToDB(users: UserType[]) {
   const db = await openUserDB();
   const tx = db.transaction('users', 'readwrite');
   const store = tx.objectStore('users');
-  console.log(db,tx,store);
-  
 
   for (const user of users) {
     store.put(user);
@@ -47,3 +45,16 @@ export async function getUsersFromDB(): Promise<UserType[]> {
     request.onerror = () => reject(request.error);
   });
 }
+
+export async function updateUserInDB(user: UserType) {
+  const db = await openUserDB();
+  const tx = db.transaction("users", "readwrite");
+  const store = tx.objectStore("users");
+  store.put(user);
+  return new Promise<void>((resolve, reject) => {
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+

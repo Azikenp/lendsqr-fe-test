@@ -4,11 +4,22 @@ import DashboardLayout from "../../layout/DashboardLayout";
 import "./Users.scss";
 import { getUsersFromDB, saveUsersToDB } from "../../lib/indexDB";
 import userData from "../../data/users.json";
-import { UserType } from "../../types/UserType";
+import { UserType } from "../../types/allTypes";
 import Table from "../../components/Table";
+import Pagination from "../../components/Pagination";
+import CountUp from "react-countup";
+
+const USERS_PER_PAGE = 10;
 
 const Users = () => {
   const [users, setUsers] = useState<UserType[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(users.length / USERS_PER_PAGE);
+  const paginatedUsers = users.slice(
+    (currentPage - 1) * USERS_PER_PAGE,
+    currentPage * USERS_PER_PAGE
+  );
 
   useEffect(() => {
     const init = async () => {
@@ -38,15 +49,21 @@ const Users = () => {
                 <div className="users-data" key={i}>
                   <img src={img} alt={`${title} icon`} />
                   <p className="title">{title}</p>
-                  <p className="count">{count.toLocaleString()}</p>
+                  <p className="count"><CountUp end={count} duration={1.75} /></p>
                 </div>
               );
             })}
           </div>
 
-          <div>
-            <Table data={users} />
-          </div>
+          <Table data={paginatedUsers} />
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => {
+              if (page >= 1 && page <= totalPages) setCurrentPage(page);
+            }}
+          />
         </div>
       </section>
     </DashboardLayout>
