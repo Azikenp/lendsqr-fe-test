@@ -1,9 +1,9 @@
+import { UserType } from "../types/UserType";
 
+const Table = ({ data }: { data: UserType[] }) => {
+  console.log(data);
 
-const Table = () => {
-  return (
-    <div>Table</div>
-  )
-}
+  return <div>Table</div>;
+};
 
-export default Table
+export default Table;
