@@ -4,35 +4,65 @@ $linkColor: #213f7d99;
 $bgActive: #39cdcc0f;
 $linkColorActive: #213f7d;
 
-.sidebar-wrapper {
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row {
   display: flex;
   flex-direction: row;
-  min-width: 283px;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-wrapper {
+  @include flex-row;
   height: 100vh;
   overflow: hidden;
 
-  .sidebar-toggle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &.untoggledWidth {
+    min-width: 283px;
+    transition: min-width 0.2s ease;
+  }
+
+  &.toggledWidth {
+    min-width: 80px;
+    transition: min-width 0.2s ease;
+  }
+
+  .sidebar-toggle {
+    @include flex-center;
     position: absolute;
     top: 52%;
-    left: 270px;
     rotate: 270deg;
     cursor: pointer;
     background: #00000017;
     width: 30px;
     height: 30px;
     border-radius: 60%;
-    
-    img{
+
+    img {
       width: 12px;
     }
   }
 
+  .sidebar-toggled_position {
+    left: 70px;
+    transition: left 0.4s ease;
+  }
+
+  .sidebar-untoggled_position {
+    left: 270px;
+    transition: left 0.2s ease;
+  }
+
   .sidebar {
-    display: flex;
-    flex-direction: column;
+    @include flex-col;
     width: 100%;
     padding: 40px 0;
     overflow-y: auto;
@@ -73,8 +103,7 @@ $linkColorActive: #213f7d;
   }
 
   .sidebar-group {
-    display: flex;
-    flex-direction: column;
+    @include flex-col;
 
     .sidebar-header {
       color: $headerColor;
@@ -97,6 +126,194 @@ $linkColorActive: #213f7d;
       img {
         width: 16px;
         height: 12.8px;
+      }
+
+      &:hover {
+        background-color: $bgActive;
+        color: $linkColorActive;
+      }
+
+      &.active {
+        background-color: $bgActive;
+        color: $linkColorActive;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .untoggledWidth {
+    min-width: 253px;
+  }
+
+  .toggledWidth {
+    min-width: 70px;
+  }
+
+  .sidebar-wrapper {
+    &.untoggledWidth {
+      min-width: 253px;
+    }
+
+    .sidebar-toggle {
+      top: 48%;
+
+      img {
+        width: 10px;
+      }
+    }
+
+    .sidebar-toggled_position {
+      left: 60px;
+    }
+
+    .sidebar-untoggled_position {
+      left: 240px;
+    }
+
+    .organization {
+      gap: 8px;
+      padding: 0px 20px 0px 20px;
+
+      p {
+        font-size: 14px;
+      }
+
+      img {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .sidebar-group {
+      .sidebar-header {
+        font-size: 10px;
+        padding: 0px 20px 0px 20px;
+      }
+
+      .sidebar-link {
+        gap: 10px;
+        padding: 15px 20px 15px 20px;
+
+        img {
+          width: 16px;
+          height: 12.8px;
+        }
+      }
+    }
+  }
+}
+
+.mobile-navbar {
+  position: absolute;
+  top: 70px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: white;
+
+  &.untoggledWidth {
+    min-width: 203px;
+    transition: min-width 0.2s ease;
+  }
+
+  &.toggledWidth {
+    min-width: 0px;
+    transition: min-width 0.2s ease;
+  }
+
+  .sidebar-toggle {
+    @include flex-center;
+    position: fixed;
+    top: 52%;
+    rotate: 270deg;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 60%;
+
+    img {
+      width: 10px;
+    }
+  }
+
+  .sidebar-toggled_position {
+    left: -10px;
+    transition: left 0.4s ease;
+    background: #0000000d;
+  }
+
+  .sidebar-untoggled_position {
+    left: 185px;
+    transition: left 0.2s ease;
+    background: #00000017;
+  }
+
+  .sidebar {
+    @include flex-col;
+    width: 100%;
+    padding: 40px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // Hide scrollbar for Webkit browsers (Chrome, Safari)
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    // Hide scrollbar for Firefox
+    scrollbar-width: none;
+
+    // Hide scrollbar for IE and Edge
+    -ms-overflow-style: none;
+  }
+
+  .organization {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 0px 20px 0px 20px;
+
+    p {
+      font-size: 11px;
+      font-weight: 400;
+      color: $darkBlue;
+    }
+
+    img {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .sidebar-group {
+    @include flex-col;
+
+    .sidebar-header {
+      color: $headerColor;
+      font-size: 9px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 11px;
+      padding: 0px 20px 0px 20px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-size: 11px;
+      color: $linkColor;
+      padding: 12px 20px 12px 20px;
+
+      img {
+        width: 12px;
+        height: 9.8px;
       }
 
       &:hover {
