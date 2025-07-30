@@ -1,0 +1,36 @@
+$textColor: #545f7d;
+$seletBgColor: #213f7d1a;
+
+.select-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    color: $textColor;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  select {
+    border: 1px solid $seletBgColor;
+    width: 80px;
+    height: 30px;
+    background-color: $seletBgColor;
+    color: $textColor;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .select-container {
+    p {
+      font-size: 11px;
+    }
+
+    select {
+      width: 60px;
+      height: 20px;
+      font-size: 12px;
+    }
+  }
+}

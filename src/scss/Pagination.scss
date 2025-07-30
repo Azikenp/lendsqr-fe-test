@@ -1,0 +1,57 @@
+$borderColor: #213f7d1a;
+$textColor: #545f7d;
+$activeColor: #0543f0;
+
+.pagination-container {
+  .pagination-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .prev-btn,
+    .next-btn {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $borderColor;
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      background-color: #051df007;
+    }
+    .next-btn {
+      background-color: #0544f010;
+    }
+
+    .pages-in-btw {
+      border: none;
+      margin-right: 7px;
+      color: $textColor;
+
+      &.active-page {
+        color: $activeColor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .pagination-container {
+    .pagination-wrapper {
+      gap: 5px;
+
+      .prev-btn,
+      .next-btn {
+        width: 20px;
+        height: 20px;
+      }
+
+      .pages-in-btw {
+        margin-right: 4px;
+      }
+    }
+  }
+}

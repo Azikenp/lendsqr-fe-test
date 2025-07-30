@@ -44,12 +44,12 @@ const Table = ({ data }: { data: UserType[] }) => {
         <tbody>
           {data.map((user) => (
             <tr key={user._id}>
-              <td>{user.organization}</td>
-              <td>{user.fullName}</td>
-              <td>{user.email}</td>
-              <td>{`+${user.phoneNumber}`}</td>
-              <td>{`${formatDate(user.dateJoined)} 10.00AM`}</td>
-              <td>
+              <td className="small-row">{user.organization}</td>
+              <td className="medium-row">{user.fullName}</td>
+              <td className="big-row">{user.email}</td>
+              <td className="medium-row">{`+${user.phoneNumber}`}</td>
+              <td className="medium-row">{`${formatDate(user.dateJoined)} 10.00AM`}</td>
+              <td className="small-row">
                 <div className={`status ${user.status}`}>{user.status}</div>
               </td>
               <td onClick={() => onrowClicked(user._id)}>

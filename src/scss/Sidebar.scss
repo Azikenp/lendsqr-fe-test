@@ -22,8 +22,9 @@ $linkColorActive: #213f7d;
 
 .sidebar-wrapper {
   @include flex-row;
-  height: 100vh;
   overflow: hidden;
+  background-color: white;
+  z-index: 999;
 
   &.untoggledWidth {
     min-width: 283px;
@@ -207,9 +208,10 @@ $linkColorActive: #213f7d;
 .mobile-navbar {
   position: absolute;
   top: 70px;
-  height: 100vh;
+  height: 90vh;
   overflow-y: auto;
   background-color: white;
+  z-index: 999;
 
   &.untoggledWidth {
     min-width: 203px;

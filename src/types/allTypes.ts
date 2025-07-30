@@ -72,3 +72,9 @@ export type PaginationProps= {
   totalPages: number;
   onPageChange: (page: number) => void;
 }
+
+export type SelectProps = {
+  total: number;
+  setUsersPerPage: (value: number) => void;
+};
+

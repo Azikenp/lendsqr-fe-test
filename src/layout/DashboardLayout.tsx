@@ -1,6 +1,6 @@
 import Navbar from "../components/shared/Navbar";
 import Sidebar from "../components/shared/Sidebar";
-import './layout.scss'
+import "./layout.scss";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <div className="dashboard-content">
         <Sidebar />
-        {children}
+        <div className="children-content">{children}</div>
       </div>
     </div>
   );

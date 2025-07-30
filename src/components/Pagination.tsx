@@ -1,4 +1,7 @@
 import { PaginationProps } from "../types/allTypes";
+import prev from "../assets/icons/prev.png";
+import next from "../assets/icons/next.png";
+import "../scss/Pagination.scss";
 
 const Pagination = ({
   currentPage,
@@ -35,40 +38,42 @@ const Pagination = ({
   const uniquePages = Array.from(new Set(pageNumbers));
 
   return (
-    <div className="flex items-center gap-2 mt-4">
-      <button
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="px-3 py-1 border rounded disabled:opacity-50"
-      >
-        Prev
-      </button>
+    <div className="pagination-container">
+      <div className="pagination-wrapper">
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="prev-btn"
+        >
+          <img src={prev} alt="prev" />
+        </button>
 
-      {uniquePages.map((page, idx) =>
-        page === "..." ? (
-          <span key={`ellipsis-${idx}`} className="px-2">
-            ...
-          </span>
-        ) : (
-          <button
-            key={page}
-            onClick={() => onPageChange(page as number)}
-            className={`px-3 py-1 border rounded ${
-              currentPage === page ? "bg-blue-500 text-white" : ""
-            }`}
-          >
-            {page}
-          </button>
-        )
-      )}
+        {uniquePages.map((page, idx) =>
+          page === "..." ? (
+            <span key={`ellipsis-${idx}`} className="pages-in-btw">
+              ...
+            </span>
+          ) : (
+            <button
+              key={page}
+              onClick={() => onPageChange(page as number)}
+              className={`pages-in-btw ${
+                currentPage === page ? "active-page" : ""
+              }`}
+            >
+              {page}
+            </button>
+          )
+        )}
 
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="px-3 py-1 border rounded disabled:opacity-50"
-      >
-        Next
-      </button>
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="next-btn"
+        >
+          <img src={next} alt="next" />
+        </button>
+      </div>
     </div>
   );
 };

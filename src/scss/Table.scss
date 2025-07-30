@@ -3,6 +3,17 @@ $textColorPrimary: #545f7d;
 
 .table-wrapper {
   margin-top: 52px;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
 
   .table {
     background-color: white;
@@ -23,6 +34,7 @@ $textColorPrimary: #545f7d;
           font-weight: 600;
           text-transform: uppercase;
           color: $textColorPrimary;
+          padding: 0 10px 0 10px;
 
           .header-content {
             display: flex;
@@ -48,6 +60,7 @@ $textColorPrimary: #545f7d;
           color: $textColorPrimary;
           font-size: 14px;
           border-bottom: 1px solid #213f7d1d;
+          padding: 0 10px 0 10px;
         }
 
         .status {
@@ -80,7 +93,7 @@ $textColorPrimary: #545f7d;
         .options {
           position: absolute;
           background-color: white;
-          right: -40px;
+          right: 0px;
           top: 50px;
           z-index: 30;
           padding: 10px 20px;
@@ -101,6 +114,150 @@ $textColorPrimary: #545f7d;
             img {
               width: 16px;
               height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .table {
+    padding: 22px !important;
+
+    .thead {
+      tr {
+        height: 44px !important;
+
+        th {
+          padding: 0 12px 0 12px !important;
+
+          .header-content {
+            img {
+              width: 14px !important;
+              height: 14px !important;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        height: 62px !important;
+
+        td {
+          padding: 0 12px 0 12px !important;
+
+          &.small-row {
+            min-width: 150px;
+          }
+          &.medium-row {
+            min-width: 180px;
+          }
+          &.big-row {
+            min-width: 220px;
+          }
+        }
+
+        .status {
+          background-color: red;
+          padding: 8px 20px 8px 20px;
+          width: fit-content;
+          border-radius: 14px;
+          font-weight: 400;
+          font-size: 12px;
+          text-transform: capitalize;
+
+          &.inactive {
+            background-color: #545f7d0f;
+            color: #545f7d;
+          }
+          &.active {
+            background-color: #39cd620f;
+            color: #39cd62;
+          }
+          &.blacklisted {
+            background-color: #e4033b0f;
+            color: #e4033b;
+          }
+          &.pending {
+            background-color: #e9b2000f;
+            color: #e9b200;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .table-wrapper {
+    margin-top: 36px;
+    .table {
+      padding: 14px !important;
+
+      .thead {
+        tr {
+          height: 32px !important;
+
+          th {
+            font-size: 11px !important;
+
+            .header-content {
+              img {
+                width: 12px !important;
+                height: 12px !important;
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          height: 52px !important;
+
+          td {
+            padding: 0 12px 0 12px !important;
+            font-size: 12px !important;
+
+            &.small-row {
+              min-width: 120px;
+            }
+            &.medium-row {
+              min-width: 160px;
+            }
+            &.big-row {
+              min-width: 190px;
+            }
+          }
+
+          .status {
+            background-color: red;
+            padding: 8px 20px 8px 20px;
+            width: fit-content;
+            border-radius: 14px;
+            font-weight: 400;
+            font-size: 12px;
+            text-transform: capitalize;
+
+            &.inactive {
+              background-color: #545f7d0f;
+              color: #545f7d;
+            }
+            &.active {
+              background-color: #39cd620f;
+              color: #39cd62;
+            }
+            &.blacklisted {
+              background-color: #e4033b0f;
+              color: #e4033b;
+            }
+            &.pending {
+              background-color: #e9b2000f;
+              color: #e9b200;
             }
           }
         }

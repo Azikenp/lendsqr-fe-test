@@ -8,17 +8,17 @@ import { UserType } from "../../types/allTypes";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import CountUp from "react-countup";
-
-const USERS_PER_PAGE = 10;
+import Select from "../../components/Select";
 
 const Users = () => {
   const [users, setUsers] = useState<UserType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPAge, setUsersPerPAge] = useState(10);
 
-  const totalPages = Math.ceil(users.length / USERS_PER_PAGE);
+  const totalPages = Math.ceil(users.length / usersPerPAge);
   const paginatedUsers = users.slice(
-    (currentPage - 1) * USERS_PER_PAGE,
-    currentPage * USERS_PER_PAGE
+    (currentPage - 1) * usersPerPAge,
+    currentPage * usersPerPAge
   );
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Users = () => {
     };
 
     init();
-  }, []);
+  }, [usersPerPAge]);
 
   return (
     <DashboardLayout>
@@ -49,7 +49,9 @@ const Users = () => {
                 <div className="users-data" key={i}>
                   <img src={img} alt={`${title} icon`} />
                   <p className="title">{title}</p>
-                  <p className="count"><CountUp end={count} duration={1.75} /></p>
+                  <p className="count">
+                    <CountUp end={count} duration={1.75} />
+                  </p>
                 </div>
               );
             })}
@@ -57,13 +59,16 @@ const Users = () => {
 
           <Table data={paginatedUsers} />
 
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={(page) => {
-              if (page >= 1 && page <= totalPages) setCurrentPage(page);
-            }}
-          />
+          <div className="footer-users">
+            <Select total={users?.length} setUsersPerPage={setUsersPerPAge} />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={(page) => {
+                if (page >= 1 && page <= totalPages) setCurrentPage(page);
+              }}
+            />
+          </div>
         </div>
       </section>
     </DashboardLayout>

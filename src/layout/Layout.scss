@@ -1,6 +1,44 @@
+$backgoundColor: rgba(128, 128, 128, 0.05);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .dashboard-layout {
-  max-width: 100vw;
-  .dashboard-content {
-    display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  background-color: $backgoundColor;
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  overflow-x: hidden;
+
+  > * {
+    min-width: 0;
+  }
+}
+
+// .sidebar {
+//   width: 240px;
+//   flex-shrink: 0;
+// }
+
+.children-content {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
