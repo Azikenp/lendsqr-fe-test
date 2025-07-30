@@ -9,17 +9,29 @@ import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import CountUp from "react-countup";
 import Select from "../../components/Select";
+import UsersDetails from "./UsersDetails";
 
 const Users = () => {
   const [users, setUsers] = useState<UserType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPAge, setUsersPerPAge] = useState(10);
+  const [detailsPage, setDetailsPage] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const totalPages = Math.ceil(users.length / usersPerPAge);
   const paginatedUsers = users.slice(
     (currentPage - 1) * usersPerPAge,
     currentPage * usersPerPAge
   );
+
+  const detailsData = users?.find((cur) => cur?._id === selectedId);
+
+  const handleDetailsPageRequest = (id: string) => {
+    setSelectedId(id);
+    setDetailsPage(true);
+  };
+
+  console.log(selectedId, detailsData);
 
   useEffect(() => {
     const init = async () => {
@@ -36,6 +48,16 @@ const Users = () => {
 
     init();
   }, [usersPerPAge]);
+
+  if (detailsPage)
+    return (
+      <DashboardLayout>
+        <UsersDetails
+          handleClose={() => setDetailsPage(false)}
+          data={detailsData}
+        />
+      </DashboardLayout>
+    );
 
   return (
     <DashboardLayout>
@@ -57,7 +79,12 @@ const Users = () => {
             })}
           </div>
 
-          <Table data={paginatedUsers} />
+          <Table
+            data={paginatedUsers}
+            selectedId={selectedId}
+            setSelectedId={setSelectedId}
+            handleClick={handleDetailsPageRequest}
+          />
 
           <div className="footer-users">
             <Select total={users?.length} setUsersPerPage={setUsersPerPAge} />

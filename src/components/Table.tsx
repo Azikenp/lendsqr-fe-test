@@ -1,4 +1,4 @@
-import { UserType } from "../types/allTypes";
+import { TableProps } from "../types/allTypes";
 import options from "../assets/icons/options.png";
 import eye from "../assets/icons/eye.png";
 import activateUser from "../assets/icons/activate-user.png";
@@ -6,7 +6,7 @@ import blacklistUser from "../assets/icons/blacklist-user.png";
 import filter from "../assets/icons/filter-icon.png";
 import "../scss/Table.scss";
 import { formatDate } from "../utils/dateFormatter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
 
 const tableHeaders = [
@@ -18,14 +18,17 @@ const tableHeaders = [
   { label: "status", key: "status" },
 ];
 
-const Table = ({ data }: { data: UserType[] }) => {
+const Table = ({
+  data,
+  selectedId,
+  setSelectedId,
+  handleClick,
+}: TableProps) => {
   const [optionsToggle, setOptionsToggle] = useState(true);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const onrowClicked = (id: string) => {
-    setOptionsToggle((prev) => !prev);
-    setSelectedId(id);
-  };
+  useEffect(() => {
+    setOptionsToggle(false);
+  }, []);
 
   return (
     <div className="table-wrapper">
@@ -48,11 +51,18 @@ const Table = ({ data }: { data: UserType[] }) => {
               <td className="medium-row">{user.fullName}</td>
               <td className="big-row">{user.email}</td>
               <td className="medium-row">{`+${user.phoneNumber}`}</td>
-              <td className="medium-row">{`${formatDate(user.dateJoined)} 10.00AM`}</td>
+              <td className="medium-row">{`${formatDate(
+                user.dateJoined
+              )} 10.00AM`}</td>
               <td className="small-row">
                 <div className={`status ${user.status}`}>{user.status}</div>
               </td>
-              <td onClick={() => onrowClicked(user._id)}>
+              <td
+                onClick={() => {
+                  setOptionsToggle((prev) => !prev);
+                  setSelectedId(user._id);
+                }}
+              >
                 {optionsToggle && selectedId === user._id ? (
                   <MdOutlineClose />
                 ) : (
@@ -61,7 +71,12 @@ const Table = ({ data }: { data: UserType[] }) => {
               </td>
               {optionsToggle && selectedId === user._id && (
                 <div className="options">
-                  <div className="options-item">
+                  <div
+                    className="options-item"
+                    onClick={() => {
+                      handleClick(selectedId);
+                    }}
+                  >
                     <img src={eye} alt="eye" />
                     <p>View Details</p>
                   </div>

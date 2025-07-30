@@ -52,7 +52,6 @@ $textColorPrimary: #545f7d;
 
     tbody {
       tr {
-        cursor: pointer;
         height: 60px;
         position: relative;
 
@@ -95,13 +94,14 @@ $textColorPrimary: #545f7d;
           background-color: white;
           right: 0px;
           top: 50px;
-          z-index: 30;
-          padding: 10px 20px;
+          z-index: 9999;
+          padding: 5px 0px;
           box-shadow: $shadow-sm;
           cursor: default;
 
           .options-item {
             display: flex;
+            padding: 10px 20px !important;
             align-items: center;
             gap: 8px;
             margin-top: 10px;
@@ -110,6 +110,10 @@ $textColorPrimary: #545f7d;
             color: $textColorPrimary;
             font-size: 14px;
             cursor: pointer;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05);
+            }
 
             img {
               width: 16px;

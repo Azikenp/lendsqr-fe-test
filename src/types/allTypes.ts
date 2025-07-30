@@ -5,11 +5,11 @@ export type UserType = {
   email: string;
   phoneNumber: number;
   dateJoined: string;
-  status: string
+  status: string;
   fullName: string;
   bvn: number;
   gender: string;
-  maritalStatus:  string;
+  maritalStatus: string;
   children: number;
   residenceType: string;
   education: string;
@@ -67,14 +67,25 @@ export type UserType = {
   };
 };
 
-export type PaginationProps= {
+export type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-}
+};
 
 export type SelectProps = {
   total: number;
   setUsersPerPage: (value: number) => void;
 };
 
+export type TableProps = {
+  data: UserType[];
+  selectedId: string | null;
+  setSelectedId: (id: string) => void;
+  handleClick: (id: string) => void;
+};
+
+export type UserDetailsProps = {
+  data: UserType | undefined;
+  handleClose?: () => void;
+};
