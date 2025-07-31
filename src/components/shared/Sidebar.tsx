@@ -50,7 +50,9 @@ const Sidebar = () => {
                   <Link
                     to={item.path ?? ""}
                     key={itemIndex}
-                    className={`sidebar-link ${isActive ? "active" : ""}`}
+                    className={`sidebar-link ${isActive ? "active" : ""} ${
+                      item.title === "logout" && "logout"
+                    }`}
                   >
                     <img src={item.icon} alt={`${item.title} icon`} />
                     {!toggleNavbar && <span>{item.title}</span>}

@@ -18,6 +18,8 @@ import reports from "../assets/icons/reports.png";
 import preferences from "../assets/icons/preferences.png";
 import feesAndPricing from "../assets/icons/fees-and-pricing.png";
 import audit from "../assets/icons/audit.png";
+import system from "../assets/icons/system-messages.png";
+import logout from "../assets/icons/logout.png";
 
 type sideBarRouteItem = {
   title: string;
@@ -134,7 +136,15 @@ export const rawDashboardRoutes: sideBarRouteGroup[] = [
         title: "audit logs",
         icon: audit,
       },
+      {
+        title: "system messages",
+        icon: system,
+      },
     ],
+  },
+  {
+    section: null,
+    items: [{ path: "/", title: "logout", icon: logout }],
   },
 ];
 

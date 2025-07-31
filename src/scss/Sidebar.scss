@@ -20,6 +20,11 @@ $linkColorActive: #213f7d;
   flex-direction: column;
 }
 
+.logout{
+  margin-top: 60px;
+  margin-bottom: 10px
+}
+
 .sidebar-wrapper {
   @include flex-row;
   overflow: hidden;
