@@ -6,7 +6,7 @@ const Documents = ({ data }: UserDetailsProps) => {
     <div className="section-wrapper">
       <div className="section">
         <h3>Documents</h3>
-        <div className="grid-one grid">
+        <div className="grid-uno griid">
           <div>
             <span>nin</span>
             <p>{data?.documents.nin}</p>

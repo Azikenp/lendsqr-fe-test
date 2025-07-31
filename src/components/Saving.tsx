@@ -6,7 +6,7 @@ const Savings = ({ data }: UserDetailsProps) => {
     <div className="section-wrapper">
       <div className="section">
         <h3>Savings</h3>
-        <div className="grid-one grid">
+        <div className="grid-uno griid">
           <div>
             <span>total savings</span>
             <p>₦{data?.savings.totalSavings}</p>

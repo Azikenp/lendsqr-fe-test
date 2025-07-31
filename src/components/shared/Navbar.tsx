@@ -4,14 +4,21 @@ import avatar from "../../assets/avatar.png";
 import bellIcon from "../../assets/bell-icon.png";
 import dropdown from "../../assets/dropdown.png";
 import "../../scss/Navbar.scss";
+import { useSearch } from "../../hooks/useSearchHook";
 
 const Navbar = () => {
+  const { searchValue, setSearchValue } = useSearch();
   return (
     <div className="navbar">
       <div className="navbar-content">
         <img className="logo" src={logoImg} alt="logo" />
         <div className="search-bar">
-          <input type="text" placeholder="Search for anything" />
+          <input
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            type="text"
+            placeholder="Search for anything"
+          />
           <button>
             <img className="logo" src={searchIcon} alt="logo" />
           </button>

@@ -24,7 +24,7 @@ $borderColor: #213f7d29;
       margin-bottom: 20px;
     }
 
-    .grid {
+    .griid {
       div {
         display: flex;
         flex-direction: column;
@@ -46,9 +46,10 @@ $borderColor: #213f7d29;
       }
     }
 
-    .grid-one {
+    .grid-uno {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 20px;
     }
   }
 }
@@ -56,9 +57,10 @@ $borderColor: #213f7d29;
 @media screen and (max-width: 968px) {
   .section-wrapper {
     .section {
-      .grid-one {
+      .grid-uno {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
       }
     }
   }
@@ -83,7 +85,7 @@ $borderColor: #213f7d29;
         margin-bottom: 12px;
       }
 
-      .grid {
+      .griid {
         span {
           font-size: 11px;
         }
@@ -93,7 +95,7 @@ $borderColor: #213f7d29;
         }
       }
 
-      .grid-one {
+      .grid-uno {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
       }

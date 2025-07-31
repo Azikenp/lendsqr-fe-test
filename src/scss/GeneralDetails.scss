@@ -80,19 +80,22 @@ $borderColor: #213f7d29;
     .section {
       .grid-one {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
       }
 
       .grid-two {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
       }
 
       .grid-three,
       .grid-four,
       .grid-five {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
       }
     }
   }

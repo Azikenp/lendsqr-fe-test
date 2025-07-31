@@ -35,6 +35,7 @@ $textColorPrimary: #545f7d;
           text-transform: uppercase;
           color: $textColorPrimary;
           padding: 0 10px 0 10px;
+          position: relative;
 
           .header-content {
             display: flex;

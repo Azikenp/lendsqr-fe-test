@@ -6,7 +6,7 @@ const BankDetails = ({ data }: UserDetailsProps) => {
     <div className="section-wrapper">
       <div className="section">
         <h3>Bank Details</h3>
-        <div className="grid-one grid">
+        <div className="grid-uno griid">
           <div>
             <span>account name</span>
             <p>{data?.bankDetails.accountName}</p>

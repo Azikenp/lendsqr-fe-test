@@ -1,3 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+
+type InputSetter = React.Dispatch<React.SetStateAction<string>>;
+
 export type UserType = {
   _id: string;
   organization: string;
@@ -78,14 +82,58 @@ export type SelectProps = {
   setUsersPerPage: (value: number) => void;
 };
 
+export type TableFilterProps = {
+  fullData: UserType[];
+  data: UserType[];
+  username: string;
+  setUsername: InputSetter;
+  organization: string;
+  setOrganization: InputSetter;
+  email: string;
+  setEmail: InputSetter;
+  phoneNumber: string;
+  setPhoneNumber: InputSetter;
+  status: string;
+  setStatus: InputSetter;
+  date: string;
+  setDate: InputSetter;
+  filtering?: boolean;
+  setFiltering: React.Dispatch<React.SetStateAction<boolean>>;
+  handleFilter: () => void;
+  setFilter: Dispatch<SetStateAction<boolean>>;
+};
+
 export type TableProps = {
   data: UserType[];
+  fullData: UserType[];
   selectedId: string | null;
   setSelectedId: (id: string) => void;
   handleClick: (id: string) => void;
+  filter: boolean;
+  setFilter: Dispatch<SetStateAction<boolean>>;
+  username: string;
+  setUsername: InputSetter;
+  organization: string;
+  setOrganization: InputSetter;
+  email: string;
+  setEmail: InputSetter;
+  phoneNumber: string;
+  setPhoneNumber: InputSetter;
+  status: string;
+  setStatus: InputSetter;
+  date: string;
+  setDate: InputSetter;
+  filtering: boolean;
+  setFiltering: React.Dispatch<React.SetStateAction<boolean>>;
+  handleFilter: () => void;
 };
 
 export type UserDetailsProps = {
   data: UserType | undefined;
   handleClose?: () => void;
+};
+
+export type SearchContextType = {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
 };

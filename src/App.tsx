@@ -5,6 +5,7 @@ import Users from "./features/users/Users";
 import { RequireAuth } from "./auth/RequireAuth";
 import "./scss/App.scss";
 import { Toaster } from "react-hot-toast";
+import { SearchProvider } from "./context/AppContext";
 
 const router = createBrowserRouter([
   {
@@ -24,12 +25,14 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
-      <Toaster
-        position="top-center"
-        containerClassName="custom-toaster"
-        reverseOrder={false}
-      />
+      <SearchProvider>
+        <RouterProvider router={router} />
+        <Toaster
+          position="top-center"
+          containerClassName="custom-toaster"
+          reverseOrder={false}
+        />
+      </SearchProvider>
     </AuthProvider>
   );
 }
