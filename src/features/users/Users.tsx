@@ -3,7 +3,7 @@ import { usersData } from "../../constants/UsersData";
 import DashboardLayout from "../../layout/DashboardLayout";
 import "./Users.scss";
 import { getUsersFromDB, saveUsersToDB } from "../../lib/indexDB";
-import userData from "../../data/users.json";
+import userDataJson from "../../data/users.json";
 import { UserType } from "../../types/allTypes";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
@@ -33,7 +33,7 @@ const Users = () => {
   useEffect(() => {
     const init = async () => {
       const saved = await getUsersFromDB();
-      const userJson = userData.users as UserType[];
+      const userJson = userDataJson.users as UserType[];
 
       if (saved.length === 0) {
         await saveUsersToDB(userJson);
