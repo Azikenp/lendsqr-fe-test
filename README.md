@@ -1,69 +1,50 @@
-# React + TypeScript + Vite
+# 👨‍💼 Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple **User Management Dashboard** built with **React**, **TypeScript**, and **IndexedDB**. It allows an admin to log in, view a list of users, filter and search through them, and view individual user details.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔐 Login Credentials
 
-## Expanding the ESLint configuration
+Use the following credentials to log in:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Email: admin@gmail.com
+Password: admin123
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Login Authentication** using hardcoded credentials.
+- **Dashboard Layout** with sidebar navigation.
+- **Users Page**:
+  - Stats section displaying dummy summary data.
+  - Table displaying user details.
+  - Search bar to look up users by multiple fields.
+  - Filter modal to narrow down users by optional criteria.
+  - View detailed info for each user.
+- **Routing** with React Router (only the "Users" link is functional).
+- **Mock data** generated for 500 users.
+- **Fully responsive** for mobile and desktop screens.
+- **Uses IndexedDB** for storing and accessing user data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v16 or higher
+- `pnpm` or `npm` installed
+
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/admin-dashboard.git
+cd admin-dashboard
+pnpm install
+# or
+npm install
