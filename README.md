@@ -1,6 +1,6 @@
-# 👨‍💼 Admin Dashboard
+# 👨‍💼 User Dashboard
 
-This is a simple **User Management Dashboard** built with **React**, **TypeScript**, and **IndexedDB**. It allows an admin to log in, view a list of users, filter and search through them, and view individual user details.
+This is a simple **User Management Dashboard** built with **React**, **TypeScript**, and **IndexedDB**. It allows log in, you can also view a list of users, filter and search through them, and view individual user details.
 
 ---
 
@@ -26,7 +26,7 @@ Password: admin123
   - View detailed info for each user.
 - **Routing** with React Router (only the "Users" link is functional).
 - **Mock data** generated for 500 users.
-- **Fully responsive** for mobile and desktop screens.
+- **Fully responsive** for mobile, tablet and desktop screens.
 - **Uses IndexedDB** for storing and accessing user data.
 
 ---

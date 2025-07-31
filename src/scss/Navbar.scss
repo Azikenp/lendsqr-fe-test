@@ -68,7 +68,7 @@ $borderColor: #213f7d1a;
       align-items: center;
       justify-content: center;
       margin-left: auto;
-      margin-right: 60px;
+      margin-right: 50px;
 
       .navbar-text {
         font-family: "Roboto", sans-serif;
@@ -147,7 +147,7 @@ $borderColor: #213f7d1a;
       }
 
       .navbar-right {
-        margin-right: 60px;
+        margin-right: 40px;
 
         .navbar-text {
           font-size: 14px;
@@ -188,14 +188,24 @@ $borderColor: #213f7d1a;
       }
 
       .search-bar {
-        display: none;
+        width: 190px;
+        height: 26px;
+        margin-left: 20px;
+
+        input {
+          border-radius: 4px;
+        }
+
+        button {
+          display: none;
+        }
       }
 
       .navbar-right {
-        margin-right: 40px;
+        margin-right: 10px;
 
         .navbar-text {
-          margin-right: 17px;
+          display: none;
         }
 
         .icon {

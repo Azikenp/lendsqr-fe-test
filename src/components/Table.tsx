@@ -41,7 +41,7 @@ const Table = ({
   fullData,
   filtering,
   setFiltering,
-  handleFilter
+  handleFilter,
 }: TableProps) => {
   const [optionsToggle, setOptionsToggle] = useState(true);
   const filterRef = useRef<HTMLDivElement>(null);
@@ -144,7 +144,7 @@ const Table = ({
                 )}
               </td>
               {optionsToggle && selectedId === user._id && (
-                <div className="options">
+                <td className="options">
                   <div
                     className="options-item"
                     onClick={() => {
@@ -162,7 +162,7 @@ const Table = ({
                     <img src={activateUser} alt="activateUser" />
                     <p>Activate User</p>
                   </div>
-                </div>
+                </td>
               )}
             </tr>
           ))}

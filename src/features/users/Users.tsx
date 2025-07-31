@@ -108,7 +108,6 @@ const Users = () => {
     }
   }, [searchValue]);
 
-  console.log(date);
   
 
   const usersToDisplay = usersToDisplayArray;
