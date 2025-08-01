@@ -28,7 +28,7 @@ const Users = () => {
   const [date, setDate] = useState("");
   const [filtering, setFiltering] = useState(false);
 
-  const { searchValue } = useSearch();
+  const { searchValue, setSearchValue } = useSearch();
 
   useEffect(() => {
     const init = async () => {
@@ -107,8 +107,15 @@ const Users = () => {
 
     if (filter) {
       setFiltering(false);
+      setSearchValue("");
+      setOrganization("");
+      setUsername("");
+      setEmail("");
+      setDate("");
+      setPhoneNumber("");
+      setStatus("");
     }
-  }, [searchValue, filter]);
+  }, [searchValue, filter, setSearchValue]);
 
   const usersToDisplay = usersToDisplayArray;
 

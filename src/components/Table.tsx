@@ -118,55 +118,70 @@ const Table = ({
             ))}
           </tr>
         </thead>
-        <tbody>
-          {data.map((user) => (
-            <tr key={user._id}>
-              <td className="small-row">{user.organization}</td>
-              <td className="medium-row">{user.fullName}</td>
-              <td className="big-row">{user.email}</td>
-              <td className="medium-row">{`+${user.phoneNumber}`}</td>
-              <td className="medium-row">{`${formatDate(
-                user.dateJoined
-              )} 10.00AM`}</td>
-              <td className="small-row">
-                <div className={`status ${user.status}`}>{user.status}</div>
-              </td>
-              <td
-                onClick={() => {
-                  setOptionsToggle((prev) => !prev);
-                  setSelectedId(user._id);
-                }}
-              >
-                {optionsToggle && selectedId === user._id ? (
-                  <MdOutlineClose />
-                ) : (
-                  <img src={options} alt="options" />
-                )}
-              </td>
-              {optionsToggle && selectedId === user._id && (
-                <td className="options">
-                  <div
-                    className="options-item"
-                    onClick={() => {
-                      handleClick(selectedId);
-                    }}
-                  >
-                    <img src={eye} alt="eye" />
-                    <p>View Details</p>
-                  </div>
-                  <div className="options-item">
-                    <img src={blacklistUser} alt="blacklistUser" />
-                    <p>Blacklist User</p>
-                  </div>
-                  <div className="options-item">
-                    <img src={activateUser} alt="activateUser" />
-                    <p>Activate User</p>
-                  </div>
+        {data.length > 0 ? (
+          <tbody>
+            {data.map((user) => (
+              <tr key={user._id}>
+                <td className="small-row">{user.organization}</td>
+                <td className="medium-row">{user.fullName}</td>
+                <td className="big-row">{user.email}</td>
+                <td className="medium-row">{`+${user.phoneNumber}`}</td>
+                <td className="medium-row">{`${formatDate(
+                  user.dateJoined
+                )} 10.00AM`}</td>
+                <td className="small-row">
+                  <div className={`status ${user.status}`}>{user.status}</div>
                 </td>
-              )}
+                <td
+                  onClick={() => {
+                    setOptionsToggle((prev) => !prev);
+                    setSelectedId(user._id);
+                  }}
+                >
+                  {optionsToggle && selectedId === user._id ? (
+                    <MdOutlineClose />
+                  ) : (
+                    <img src={options} alt="options" />
+                  )}
+                </td>
+                {optionsToggle && selectedId === user._id && (
+                  <td className="options">
+                    <div
+                      className="options-item"
+                      onClick={() => {
+                        handleClick(selectedId);
+                      }}
+                    >
+                      <img src={eye} alt="eye" />
+                      <p>View Details</p>
+                    </div>
+                    <div className="options-item">
+                      <img src={blacklistUser} alt="blacklistUser" />
+                      <p>Blacklist User</p>
+                    </div>
+                    <div className="options-item">
+                      <img src={activateUser} alt="activateUser" />
+                      <p>Activate User</p>
+                    </div>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <tbody>
+            <tr
+              style={{
+                height: "400px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <td>No User Found</td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        )}
       </table>
     </div>
   );
