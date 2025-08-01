@@ -83,9 +83,7 @@ const Users = () => {
         : true) &&
       (email ? user.email.toLowerCase().includes(email.toLowerCase()) : true) &&
       (phoneNumber ? String(user.phoneNumber).includes(phoneNumber) : true) &&
-      (status
-        ? user.status.toLowerCase().includes(status.toLowerCase())
-        : true) &&
+      (status ? user.status.toLowerCase() === status.toLowerCase() : true) &&
       (date ? user.dateJoined.slice(0, 10).includes(date) : true)
     );
   });
@@ -106,7 +104,11 @@ const Users = () => {
       setPhoneNumber("");
       setStatus("");
     }
-  }, [searchValue]);
+
+    if (filter) {
+      setFiltering(false);
+    }
+  }, [searchValue, filter]);
 
   const usersToDisplay = usersToDisplayArray;
 

@@ -18,7 +18,7 @@ const FilterModal = ({
   handleFilter,
   setFilter,
 }: TableFilterProps) => {
-  const statusToMap = ["Pending", "Blacklisted", "Inactive", "Active"];
+  const statusToMap = ["pending", "blacklisted", "inactive", "active"];
 
   const uniqueOrganizations = Array.from(
     new Set(fullData.map((user) => user.organization))
