@@ -30,7 +30,7 @@ $borderPrimary: #213f7d33;
     input,
     select {
       border: 1px solid $borderPrimary;
-      width: 230px;
+      width: 240px;
       height: 40px;
       outline: none;
       padding: 10px;
@@ -43,21 +43,44 @@ $borderPrimary: #213f7d33;
     }
   }
 
-  button {
-    width: 110px;
-    margin-top: 10px;
-    height: 35px;
-    border: 1px solid $borderPrimary;
-    background-color: #213f7d0f;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    background-color: rgba(255, 0, 0, 0.185);
-    transition: all 300ms;
-    color: gray;
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 
-    &:hover {
-      background-color: rgba(255, 0, 0, 0.145);
+    button {
+      width: 110px;
+      margin-top: 25px;
+      height: 35px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 300ms;
+      color: gray;
+      font-weight: 600;
+
+      &.reset {
+        border: 1px solid #545f7d;
+        background-color: white;
+        color: #545f7d;
+
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.093);
+          transform: scale(1.05);
+        }
+      }
+
+      &.filter {
+        border: 1px solid #39cdcc;
+        background-color: #39cdcc;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #39cdcdb7;
+          transform: scale(1.05);
+        }
+      }
     }
   }
 }

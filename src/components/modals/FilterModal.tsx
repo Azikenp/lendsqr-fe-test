@@ -89,8 +89,10 @@ const FilterModal = ({
         </select>
       </div>
 
-      <div>
+      <div className="button-wrapper">
+        <button className="reset">Reset</button>
         <button
+          className="filter"
           onClick={() => {
             setFilter(false);
             handleFilter();
