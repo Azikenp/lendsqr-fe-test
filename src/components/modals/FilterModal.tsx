@@ -90,7 +90,19 @@ const FilterModal = ({
       </div>
 
       <div className="button-wrapper">
-        <button className="reset">Reset</button>
+        <button
+          onClick={() => {
+            setOrganization("");
+            setUsername("");
+            setEmail("");
+            setDate("");
+            setPhoneNumber("");
+            setStatus("");
+          }}
+          className="reset"
+        >
+          Reset
+        </button>
         <button
           className="filter"
           onClick={() => {
