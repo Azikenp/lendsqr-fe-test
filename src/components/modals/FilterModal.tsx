@@ -44,6 +44,7 @@ const FilterModal = ({
       <div className="username">
         <p>Username</p>
         <input
+          placeholder="User"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
@@ -53,6 +54,7 @@ const FilterModal = ({
       <div className="email">
         <p>Email</p>
         <input
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="text"
@@ -71,6 +73,7 @@ const FilterModal = ({
       <div className="number">
         <p>Phone Number</p>
         <input
+          placeholder="Phone Number"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           type="text"
